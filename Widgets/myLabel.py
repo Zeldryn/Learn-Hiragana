@@ -12,7 +12,7 @@ class Label(QLabel):
         self.QFont = QFont()
 
         if self.id == "headLabel":
-            self.setText("Learn Hiragana Versi Demo")
+            self.setText("Learn Hiragana Demo Version")
             self.QFont.setPointSize(15)
             self.setFont(self.QFont)
 
