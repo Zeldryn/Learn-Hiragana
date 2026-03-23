@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QWidget,QApplication, QGraphicsOpacityEffect
 from Widgets.myButton import Button
-from Widgets.Widget import Line
+from Widgets.Widget import Header
 from Widgets.myLabel import Label
 from PySide6.QtCore import QRect, QPropertyAnimation
-from PySide6.QtGui import QFontMetrics
+
 
 class Main(QWidget):
     def __init__(self):
@@ -17,22 +17,11 @@ class Main(QWidget):
                            background-color: #EBF4F6}""")
         self.firstBtn = Button("firstMode",self)
         self.headLabel = Label("headLabel",self)
-        self.line = Line(self)
+        self.Header = Header(self,self.headLabel)
 
+        self.Header.setParent(self)
+        self.Header.show()
 
-        
-        self.metrics = QFontMetrics(self.headLabel.font())
-        self.headLabel.setParent(self)
-        self.headLabel.move((self.width() - self.metrics.horizontalAdvance(self.headLabel.text())) // 2 ,10)
-        self.headLabel.show()
-
-
-        self.line.setParent(self)
-        self.line.anim.finished.connect(self.startAnimationText)
-        self.line.show()
-
-    def startAnimationText(self):
-        self.headLabel.anim.start()
 
 app = QApplication([])
 window = Main()
