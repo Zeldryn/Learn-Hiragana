@@ -55,7 +55,7 @@ class Box2(QPushButton):
                            }""")
         self.anim = QPropertyAnimation(self, b"geometry")
         self.anim.setDuration(2000)
-        self.anim.setStartValue(QRect(self.parent.width() * 0.15,self.parent.height() * 0.4,0,0))
+        self.anim.setStartValue(QRect(self.parent.width() * 0.45,self.parent.height() * 0.4,0,0))
         self.anim.setEndValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
         self.anim.start()
 
@@ -71,7 +71,7 @@ class Box3(QPushButton):
                            }""")
         self.anim = QPropertyAnimation(self, b"geometry")
         self.anim.setDuration(2000)
-        self.anim.setStartValue(QRect(self.parent.width() * 0.15,self.parent.height() * 0.4,0,0))
+        self.anim.setStartValue(QRect(self.parent.width() * 0.75,self.parent.height() * 0.4,0,0))
         self.anim.setEndValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
         self.anim.start()
 
