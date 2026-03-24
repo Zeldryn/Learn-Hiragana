@@ -32,6 +32,7 @@ class Box1(QPushButton):
         super().__init__()
         self.setObjectName("Box1")
         self.count = 0
+        self.finishAnim = False
         self.parent = parent
         self.setStyleSheet("""#Box1 {
                            background-image: url(assets/image/hiraganaImage.jpg);
@@ -49,6 +50,7 @@ class Box1(QPushButton):
 
     def textIn(self):
         self.parent.bMode.anim.start()
+        self.finishAnim = True
 
     def enterEvent(self,event):
         self.setCursor(Qt.PointingHandCursor)
@@ -56,8 +58,9 @@ class Box1(QPushButton):
         self.anim1.setDuration(200)
         self.anim1.setStartValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
         self.anim1.setEndValue(QRect(self.parent.width() * 0.02,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
-        self.anim1.start()
-        self.parent.bMode.animUp.start()
+        if self.finishAnim == True:
+            self.anim1.start()
+            self.parent.bMode.animUp.start()
 
     def leaveEvent(self,event):
         self.setCursor(Qt.ArrowCursor)
@@ -65,9 +68,9 @@ class Box1(QPushButton):
         self.anim2.setDuration(200)
         self.anim2.setStartValue(QRect(self.parent.width() * 0.02,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
         self.anim2.setEndValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
-        self.anim2.start()
-
-        self.parent.bMode.animDown.start()
+        if self.finishAnim == True:
+            self.anim2.start()
+            self.parent.bMode.animDown.start()
 
     def mousePressEvent(self,event):
         if event.button() == Qt.LeftButton:
@@ -88,6 +91,7 @@ class Box2(QPushButton):
         super().__init__()
         self.setObjectName("Box2")
         self.count = 0
+        self.finishAnim = False
         self.parent = parent
         self.setStyleSheet("""#Box2 {
                            background-image: url(assets/image/gaImage.png);
@@ -105,26 +109,29 @@ class Box2(QPushButton):
 
     def textIn(self):
         self.parent.vMode.anim.start()
+        self.finishAnim = True 
+
         
     def enterEvent(self,event):
+        self.setCursor(Qt.PointingHandCursor)
         self.anim1 = QPropertyAnimation(self, b"geometry")
         self.anim1.setDuration(300)
         self.anim1.setStartValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
         self.anim1.setEndValue(QRect(self.parent.width() * 0.34,self.parent.height() * 0.25,self.parent.width() * 0.32,self.parent.height() * 0.68))
-        self.anim1.start()
 
-        self.parent.vMode.animUp.start()
-        
-        self.setCursor(Qt.PointingHandCursor)
+        if self.finishAnim == True:
+            self.anim1.start()
+            self.parent.vMode.animUp.start()
 
     def leaveEvent(self,Event):
+        self.setCursor(Qt.ArrowCursor)
         self.anim2 = QPropertyAnimation(self, b"geometry")
         self.anim2.setDuration(300)
         self.anim2.setStartValue(QRect(self.parent.width() * 0.34,self.parent.height() * 0.25,self.parent.width() * 0.32,self.parent.height() * 0.68))
         self.anim2.setEndValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
-        self.anim2.start()
-        self.setCursor(Qt.ArrowCursor)
-        self.parent.vMode.animDown.start()
+        if self.finishAnim == True:
+            self.anim2.start()
+            self.parent.vMode.animDown.start()
 
     def mousePressEvent(self,event):
         if event.button() == Qt.LeftButton:
@@ -145,6 +152,7 @@ class Box3(QPushButton):
         super().__init__()
         self.setObjectName("Box3")
         self.count = 0
+        self.finishAnim = False
         self.parent = parent
         self.setStyleSheet("""#Box3 {
                            background-image: url(assets/image/paImage.png);
@@ -163,15 +171,18 @@ class Box3(QPushButton):
 
     def textIn(self):
         self.parent.cMode.anim.start() 
+        self.finishAnim = True 
+
     def enterEvent(self,event):
         self.setCursor(Qt.PointingHandCursor)
         self.anim1 = QPropertyAnimation(self, b"geometry")
         self.anim1.setDuration(200)
         self.anim1.setStartValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.26,self.parent.width() * 0.30, self.parent.height() * 0.66))
         self.anim1.setEndValue(QRect(self.parent.width() * 0.66,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
-        self.anim1.start()
+        if self.finishAnim == True:
+            self.anim1.start()
+            self.parent.cMode.animUp.start()
 
-        self.parent.cMode.animUp.start()
 
     def leaveEvent(self,event):
         self.setCursor(Qt.ArrowCursor)
@@ -179,9 +190,9 @@ class Box3(QPushButton):
         self.anim2.setDuration(200)
         self.anim2.setStartValue(QRect(self.parent.width() * 0.66,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
         self.anim2.setEndValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.26,self.parent.width() * 0.30, self.parent.height() * 0.66))
-        self.anim2.start()
-
-        self.parent.cMode.animDown.start()
+        if self.finishAnim == True:
+            self.anim2.start()
+            self.parent.cMode.animDown.start()
 
     def mousePressEvent(self,event):
         if event.button() == Qt.LeftButton:
