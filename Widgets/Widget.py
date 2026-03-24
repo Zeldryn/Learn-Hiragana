@@ -42,11 +42,24 @@ class Box1(QPushButton):
         self.anim = QPropertyAnimation(self, b"geometry")
         self.anim.setDuration(2000)
         self.anim.setStartValue(QRect(self.parent.width() * 0.15,self.parent.height() * 0.4,0,0))
-        self.anim.setEndValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
+        self.anim.setEndValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
         self.anim.start()
 
     def enterEvent(self,event):
         self.setCursor(Qt.PointingHandCursor)
+        self.anim1 = QPropertyAnimation(self, b"geometry")
+        self.anim1.setDuration(200)
+        self.anim1.setStartValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
+        self.anim1.setEndValue(QRect(self.parent.width() * 0.02,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
+        self.anim1.start()
+
+    def leaveEvent(self,event):
+        self.setCursor(Qt.ArrowCursor)
+        self.anim2 = QPropertyAnimation(self, b"geometry")
+        self.anim2.setDuration(200)
+        self.anim2.setStartValue(QRect(self.parent.width() * 0.02,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
+        self.anim2.setEndValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
+        self.anim2.start()
 
 class Box2(QPushButton):
     def __init__(self,parent):
@@ -63,11 +76,25 @@ class Box2(QPushButton):
         self.anim = QPropertyAnimation(self, b"geometry")
         self.anim.setDuration(2000)
         self.anim.setStartValue(QRect(self.parent.width() * 0.45,self.parent.height() * 0.4,0,0))
-        self.anim.setEndValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
+        self.anim.setEndValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
         self.anim.start()
         
     def enterEvent(self,event):
+        self.anim1 = QPropertyAnimation(self, b"geometry")
+        self.anim1.setDuration(300)
+        self.anim1.setStartValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
+        self.anim1.setEndValue(QRect(self.parent.width() * 0.34,self.parent.height() * 0.25,self.parent.width() * 0.32,self.parent.height() * 0.68))
+        self.anim1.start()
+        
         self.setCursor(Qt.PointingHandCursor)
+
+    def leaveEvent(self,Event):
+        self.anim2 = QPropertyAnimation(self, b"geometry")
+        self.anim2.setDuration(300)
+        self.anim2.setStartValue(QRect(self.parent.width() * 0.34,self.parent.height() * 0.25,self.parent.width() * 0.32,self.parent.height() * 0.68))
+        self.anim2.setEndValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
+        self.anim2.start()
+        self.setCursor(Qt.ArrowCursor)
 
 class Box3(QPushButton):
     def __init__(self,parent):
@@ -84,10 +111,22 @@ class Box3(QPushButton):
         self.anim = QPropertyAnimation(self, b"geometry")
         self.anim.setDuration(2000)
         self.anim.setStartValue(QRect(self.parent.width() * 0.75,self.parent.height() * 0.4,0,0))
-        self.anim.setEndValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
+        self.anim.setEndValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.26,self.parent.width() * 0.3, self.parent.height() * 0.66))
         self.anim.start()
         
     def enterEvent(self,event):
         self.setCursor(Qt.PointingHandCursor)
+        self.anim1 = QPropertyAnimation(self, b"geometry")
+        self.anim1.setDuration(200)
+        self.anim1.setStartValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.26,self.parent.width() * 0.30, self.parent.height() * 0.66))
+        self.anim1.setEndValue(QRect(self.parent.width() * 0.66,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
+        self.anim1.start()
 
+    def leaveEvent(self,event):
+        self.setCursor(Qt.ArrowCursor)
+        self.anim2 = QPropertyAnimation(self, b"geometry")
+        self.anim2.setDuration(200)
+        self.anim2.setStartValue(QRect(self.parent.width() * 0.66,self.parent.height() * 0.25,self.parent.width() * 0.32, self.parent.height() * 0.68))
+        self.anim2.setEndValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.26,self.parent.width() * 0.30, self.parent.height() * 0.66))
+        self.anim2.start()
 
