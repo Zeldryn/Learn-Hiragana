@@ -36,7 +36,7 @@ class Box1(QPushButton):
         self.setStyleSheet("""#Box1 {
                            background-image: url(assets/image/hiraganaImage.jpg);
                            background-repeat: no-repeat;
-                           background-position:bottom;
+                           background-position: center;
                            border: 2px solid #0992C2;
                            border-radius: 5px ;
                            }""")
@@ -91,7 +91,7 @@ class Box2(QPushButton):
         self.setStyleSheet("""#Box2 {
                            background-image: url(assets/image/gaImage.png);
                            background-repeat: no-repeat;
-                           background-position:bottom;
+                           background-position: center;
                            border: 2px solid #0992C2;
                            border-radius: 5px ;
                            }""")
@@ -134,7 +134,7 @@ class Box3(QPushButton):
         self.setStyleSheet("""#Box3 {
                            background-image: url(assets/image/paImage.png);
                            background-repeat: no-repeat;
-                           background-position:bottom;
+                           background-position:center;
                            border: 2px solid #0992C2;
                            border-radius: 5px ;
                            }""")
