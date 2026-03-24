@@ -10,6 +10,7 @@ class Main(QWidget):
         super().__init__()
         self.outsideWidget = False
         self.setObjectName("Main")
+        self.setWindowTitle("Learn Hiragana")
         self.getWidthMonitor = self.screen().availableGeometry().width()
         self.getHeightMonitor = self.screen().availableGeometry().height()
         self.move(0,0,)
