@@ -23,26 +23,29 @@ class Main(QWidget):
         self.headLabel = Label("headLabel",self)
         self.Header = Header(self,self.headLabel)
 
+        self.bMode = Label("bMode",self)
         self.vMode = Label("vMode",self)
+        self.cMode = Label("cMode",self)
 
         self.Header.setParent(self)
         self.Header.show()
 
+        self.bMode.setParent(self)
+        self.bMode.show()
         self.Btn1.setParent(self)
         self.Btn1.show()
 
-        
         self.vMode.setParent(self)
         self.vMode.show()
-        self.vMode.move(self.width() * 0.45,self.height() * 0.08)
         self.Btn2.setParent(self)
         self.Btn2.show()
 
+        self.cMode.setParent(self)
+        self.cMode.show()
         self.Btn3.setParent(self)
         self.Btn3.show()
     
     # def enterEvent(self,event):
-
     #     QApplication.exit()
 
 

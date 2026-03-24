@@ -25,10 +25,10 @@ class Label(QLabel):
             self.anim.setStartValue(0)
             self.anim.setEndValue(1)
 
-
-        elif self.id == "vMode":
-            self.setText("Variants Mode")
+        elif self.id == "bMode":
+            self.setText("Basic Hiragana")
             self.setObjectName("vModeMain")
+            self.setGeometry(QRect(self.parent.width() * 0.03, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
             self.QFont.setPointSize(15)
             self.QFont.setItalic(True)
             self.setFont(self.QFont)
@@ -47,31 +47,93 @@ class Label(QLabel):
             self.effect.setOpacity(0)
             
             self.anim = QPropertyAnimation(self.effect, b"opacity")
-            self.anim.setDuration(200)
+            self.anim.setDuration(1000)
             self.anim.setStartValue(0)
-            self.anim.finished.connect(self.textDrop)
             self.anim.setEndValue(1)
 
-            self.animUp = QPropertyAnimation(self,b"geometry")
-            self.animUp.setDuration(250)
-            self.animUp.setStartValue(QRect(self.parent.width() * 0.43, self.parent.height() * 0.18,self.parent.width() *0.15,self.parent.height() * 0.05))
-            self.animUp.setEndValue(QRect(self.parent.width() * 0.43, self.parent.height() * 0.09,self.parent.width() * 0.15,self.parent.height() * 0.05))
-            self.animUp.finished.connect(self.textOut)
+            self.animUp = QPropertyAnimation(self, b"geometry")
+            self.animUp.setDuration(300)
+            self.animUp.setStartValue(QRect(self.parent.width() * 0.03, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+            self.animUp.setEndValue(QRect(self.parent.width() * 0.02, self.parent.height() * 0.17,self.parent.width() *0.32,self.parent.height() * 0.05))
+
+            self.animDown = QPropertyAnimation(self, b"geometry")
+            self.animDown.setDuration(300)
+            self.animDown.setStartValue(QRect(self.parent.width() * 0.02, self.parent.height() * 0.17,self.parent.width() *0.32,self.parent.height() * 0.05))
+            self.animDown.setEndValue(QRect(self.parent.width() * 0.03, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
 
 
-
-    def textDrop(self):
-            self.animDrop = QPropertyAnimation(self,b"geometry")
-            self.animDrop.setDuration(250)
-            self.animDrop.setStartValue(QRect(self.parent.width() * 0.43, self.parent.height() * 0.09,self.parent.width() * 0.15,self.parent.height() * 0.05))
-            self.animDrop.setEndValue(QRect(self.parent.width() * 0.43, self.parent.height() * 0.18,self.parent.width() *0.15,self.parent.height() * 0.05))
-            self.animDrop.start()
-
+        elif self.id == "vMode":
+            self.setText("Variants Hiragana")
+            self.setObjectName("vModeMain")
+            self.setGeometry(QRect(self.parent.width() * 0.35, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+            self.QFont.setPointSize(15)
+            self.QFont.setItalic(True)
+            self.setFont(self.QFont)
+            self.setAlignment(Qt.AlignCenter)
+            self.setStyleSheet("""#vModeMain {
+                               background-color : transparent;
+                               border: 2px solid #0992C2;
+                               border-radius:5px;
+                               }""")
             
-    def textOut(self):
-            self.animOut = QPropertyAnimation(self.effect, b"opacity")
-            self.animOut.setDuration(200)
-            self.animOut.setStartValue(1)
-            self.animOut.setEndValue(0)
-            self.animOut.start()
+
+
+
+            self.effect = QGraphicsOpacityEffect(self)
+            self.setGraphicsEffect(self.effect)
+            self.effect.setOpacity(0)
+            
+            self.anim = QPropertyAnimation(self.effect, b"opacity")
+            self.anim.setDuration(1000)
+            self.anim.setStartValue(0)
+            self.anim.setEndValue(1)
+
+            self.animUp = QPropertyAnimation(self, b"geometry")
+            self.animUp.setDuration(300)
+            self.animUp.setStartValue(QRect(self.parent.width() * 0.35, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+            self.animUp.setEndValue(QRect(self.parent.width() * 0.34, self.parent.height() * 0.17,self.parent.width() *0.32,self.parent.height() * 0.05))
+
+            self.animDown = QPropertyAnimation(self, b"geometry")
+            self.animDown.setDuration(300)
+            self.animDown.setStartValue(QRect(self.parent.width() * 0.34, self.parent.height() * 0.17,self.parent.width() *0.32,self.parent.height() * 0.05))
+            self.animDown.setEndValue(QRect(self.parent.width() * 0.35, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+
+        elif self.id == "cMode":
+            self.setText("Combinations Hiragana")
+            self.setObjectName("vModeMain")
+            self.setGeometry(QRect(self.parent.width() * 0.67, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+            self.QFont.setPointSize(15)
+            self.QFont.setItalic(True)
+            self.setFont(self.QFont)
+            self.setAlignment(Qt.AlignCenter)
+            self.setStyleSheet("""#vModeMain {
+                               background-color : transparent;
+                               border: 2px solid #0992C2;
+                               border-radius:5px;
+                               }""")
+            
+
+
+
+            self.effect = QGraphicsOpacityEffect(self)
+            self.setGraphicsEffect(self.effect)
+            self.effect.setOpacity(0)
+            
+            self.anim = QPropertyAnimation(self.effect, b"opacity")
+            self.anim.setDuration(1000)
+            self.anim.setStartValue(0)
+            self.anim.setEndValue(1)
+
+            self.animUp = QPropertyAnimation(self, b"geometry")
+            self.animUp.setDuration(300)
+            self.animUp.setStartValue(QRect(self.parent.width() * 0.67, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+            self.animUp.setEndValue(QRect(self.parent.width() * 0.66, self.parent.height() * 0.17,self.parent.width() *0.32,self.parent.height() * 0.05))
+
+            self.animDown = QPropertyAnimation(self, b"geometry")
+            self.animDown.setDuration(300)
+            self.animDown.setStartValue(QRect(self.parent.width() * 0.66, self.parent.height() * 0.17,self.parent.width() *0.32,self.parent.height() * 0.05))
+            self.animDown.setEndValue(QRect(self.parent.width() * 0.67, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
+
+
+
 
