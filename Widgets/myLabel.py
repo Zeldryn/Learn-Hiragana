@@ -12,7 +12,7 @@ class Label(QLabel):
         self.QFont = QFont()
 
         if self.id == "headLabel":
-            self.setText("Learn Hiragana Demo Version")
+            self.setText("Learn Hiragana Version 1.0")
             self.QFont.setPointSize(15)
             self.setFont(self.QFont)
 
@@ -22,6 +22,22 @@ class Label(QLabel):
             
             self.anim = QPropertyAnimation(self.effect, b"opacity")
             self.anim.setDuration(2000)
+            self.anim.setStartValue(0)
+            self.anim.setEndValue(1)
+
+
+        elif self.id == "ownerShip":
+            self.setText("made by Ahmad Rizki")
+            self.QFont.setPointSize(10)
+            self.setFont(self.QFont)
+            self.setStyleSheet("color: rgba(rgba(53, 88, 114, 0.6))")
+
+            self.effect = QGraphicsOpacityEffect(self)
+            self.setGraphicsEffect(self.effect)
+            self.effect.setOpacity(0)
+            
+            self.anim = QPropertyAnimation(self.effect, b"opacity")
+            self.anim.setDuration(1000)
             self.anim.setStartValue(0)
             self.anim.setEndValue(1)
 

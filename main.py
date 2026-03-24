@@ -23,10 +23,12 @@ class Main(QWidget):
 
         self.headLabel = Label("headLabel",self)
         self.Header = Header(self,self.headLabel)
+        self.ownerShip = Label("ownerShip",self)
 
         self.bMode = Label("bMode",self)
         self.vMode = Label("vMode",self)
         self.cMode = Label("cMode",self)
+
 
         self.Header.setParent(self)
         self.Header.show()
@@ -45,6 +47,10 @@ class Main(QWidget):
         self.cMode.show()
         self.Btn3.setParent(self)
         self.Btn3.show()
+
+        self.ownerShip.setParent(self)
+        self.ownerShip.move(self.width() * 0.015,self.height() * 0.95)
+        self.ownerShip.anim.start()
     
     # def enterEvent(self,event):
     #     QApplication.exit()

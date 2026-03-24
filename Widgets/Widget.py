@@ -24,8 +24,10 @@ class Header(QWidget):
 
     
     def Text(self):
+
         self.QHBox.addWidget(self.text,alignment=Qt.AlignCenter)
         self.text.anim.start()
+  
 
 class Box1(QPushButton):
     def __init__(self,parent):
