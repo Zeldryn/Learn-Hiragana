@@ -34,6 +34,9 @@ class Main(QWidget):
 
         self.Btn3.setParent(self)
         self.Btn3.show()
+    
+    def enterEvent(self,event):
+        QApplication
 
 
 app = QApplication([])

@@ -33,7 +33,9 @@ class Box1(QPushButton):
         self.setObjectName("Box1")
         self.parent = parent
         self.setStyleSheet("""#Box1 {
-                           background-color:white;
+                           background-image: url(assets/image/hiraganaImage.jpg);
+                           background-repeat: no-repeat;
+                           background-position:bottom;
                            border: 2px solid black;
                            border-radius: 5px ;
                            }""")
@@ -43,13 +45,18 @@ class Box1(QPushButton):
         self.anim.setEndValue(QRect(self.parent.width() * 0.03,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
         self.anim.start()
 
+    def enterEvent(self,event):
+        self.setCursor(Qt.PointingHandCursor)
+
 class Box2(QPushButton):
     def __init__(self,parent):
         super().__init__()
-        self.setObjectName("Box1")
+        self.setObjectName("Box2")
         self.parent = parent
-        self.setStyleSheet("""#Box1 {
-                           background-color:white;
+        self.setStyleSheet("""#Box2 {
+                           background-image: url(assets/image/gaImage.png);
+                           background-repeat: no-repeat;
+                           background-position:bottom;
                            border: 2px solid black;
                            border-radius: 5px ;
                            }""")
@@ -58,14 +65,19 @@ class Box2(QPushButton):
         self.anim.setStartValue(QRect(self.parent.width() * 0.45,self.parent.height() * 0.4,0,0))
         self.anim.setEndValue(QRect(self.parent.width() * 0.35,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
         self.anim.start()
+        
+    def enterEvent(self,event):
+        self.setCursor(Qt.PointingHandCursor)
 
 class Box3(QPushButton):
     def __init__(self,parent):
         super().__init__()
-        self.setObjectName("Box1")
+        self.setObjectName("Box3")
         self.parent = parent
-        self.setStyleSheet("""#Box1 {
-                           background-color:white;
+        self.setStyleSheet("""#Box3 {
+                           background-image: url(assets/image/paImage.png);
+                           background-repeat: no-repeat;
+                           background-position:bottom;
                            border: 2px solid black;
                            border-radius: 5px ;
                            }""")
@@ -74,5 +86,8 @@ class Box3(QPushButton):
         self.anim.setStartValue(QRect(self.parent.width() * 0.75,self.parent.height() * 0.4,0,0))
         self.anim.setEndValue(QRect(self.parent.width() * 0.67,self.parent.height() * 0.12,self.parent.width() * 0.3, self.parent.height() * 0.8))
         self.anim.start()
+        
+    def enterEvent(self,event):
+        self.setCursor(Qt.PointingHandCursor)
 
 
