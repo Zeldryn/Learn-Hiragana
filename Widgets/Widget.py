@@ -87,6 +87,7 @@ class Box2(QPushButton):
     def __init__(self,parent):
         super().__init__()
         self.setObjectName("Box2")
+        self.count = 0
         self.parent = parent
         self.setStyleSheet("""#Box2 {
                            background-image: url(assets/image/gaImage.png);
@@ -125,11 +126,25 @@ class Box2(QPushButton):
         self.setCursor(Qt.ArrowCursor)
         self.parent.vMode.animDown.start()
 
+    def mousePressEvent(self,event):
+        if event.button() == Qt.LeftButton:
+            self.setCursor(Qt.BusyCursor)
+            self.timer = QTimer()
+            self.timer.timeout.connect(self.countTime)
+            self.timer.start(500)
+
+    def countTime(self):
+        self.count += 1
+        if self.count == 1:
+            self.setCursor(Qt.ArrowCursor)
+            self.count = 0
+
 
 class Box3(QPushButton):
     def __init__(self,parent):
         super().__init__()
         self.setObjectName("Box3")
+        self.count = 0
         self.parent = parent
         self.setStyleSheet("""#Box3 {
                            background-image: url(assets/image/paImage.png);
@@ -167,4 +182,17 @@ class Box3(QPushButton):
         self.anim2.start()
 
         self.parent.cMode.animDown.start()
+
+    def mousePressEvent(self,event):
+        if event.button() == Qt.LeftButton:
+            self.setCursor(Qt.BusyCursor)
+            self.timer = QTimer()
+            self.timer.timeout.connect(self.countTime)
+            self.timer.start(500)
+
+    def countTime(self):
+        self.count += 1
+        if self.count == 1:
+            self.setCursor(Qt.ArrowCursor)
+            self.count = 0
 
