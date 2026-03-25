@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect,QHBoxLayout,QPushB
 from PySide6.QtCore import QRect, QPropertyAnimation,Qt,QTimer
 from Page.basicHiraganaPage import HiraganaPage
 from Page.variantsHirganaPage import variantsHiraganaPage
+from Page.combinationsHiraganaPage import combinationsHiraganaPage
 from Widgets.myLabel import Label
 
 class Header(QWidget):
@@ -176,6 +177,8 @@ class Box3(QPushButton):
         self.count = 0
         self.finishAnim = False
         self.parent = parent
+        self.childText = Label("hCombinationsText",self)
+        self.clicked.connect(self.hiraganaPage)
         self.setStyleSheet("""#Box3 {
                            background-image: url(assets/image/paImage.png);
                            background-repeat: no-repeat;
@@ -222,11 +225,13 @@ class Box3(QPushButton):
             self.timer = QTimer()
             self.timer.timeout.connect(self.countTime)
             self.timer.start(500)
+            super().mousePressEvent(event)
 
     def countTime(self):
         self.count += 1
         if self.count == 1:
             self.setCursor(Qt.ArrowCursor)
             self.count = 0
-
-
+    def hiraganaPage(self):
+        self.hComPage = combinationsHiraganaPage(self)
+        self.hComPage.show()

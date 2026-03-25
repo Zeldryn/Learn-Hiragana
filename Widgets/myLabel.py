@@ -165,4 +165,11 @@ class Label(QLabel):
             self.setFont(self.QFont)
             self.setStyleSheet("color:white")
 
+        elif self.id == "hCombinationsText":
+            self.setText("Combinations Hiragana")
+            self.QFont.setPointSize(15)
+            self.QFont.setItalic(True)
+            self.setFont(self.QFont)
+            self.setStyleSheet("color:white")
+
   
