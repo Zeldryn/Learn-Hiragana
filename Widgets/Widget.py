@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect,QHBoxLayout,QPushButton
 from PySide6.QtCore import QRect, QPropertyAnimation,Qt,QTimer
+from Page.basicHiraganaPage import HiraganaPage
 
 class Header(QWidget):
     def __init__(self,parent,text):
@@ -36,6 +37,7 @@ class Box1(QPushButton):
         self.count = 0
         self.finishAnim = False
         self.parent = parent
+        self.clicked.connect(self.hiraganaPage)
         self.setStyleSheet("""#Box1 {
                            background-image: url(assets/image/hiraganaImage.jpg);
                            background-repeat: no-repeat;
@@ -80,12 +82,17 @@ class Box1(QPushButton):
             self.timer = QTimer()
             self.timer.timeout.connect(self.countTime)
             self.timer.start(500)
+            super().mousePressEvent(event)
 
     def countTime(self):
         self.count += 1
         if self.count == 1:
             self.setCursor(Qt.ArrowCursor)
             self.count = 0
+
+    def hiraganaPage(self):
+        self.hPage = HiraganaPage(self)
+        self.hPage.show()
 
 
 class Box2(QPushButton):
@@ -208,4 +215,5 @@ class Box3(QPushButton):
         if self.count == 1:
             self.setCursor(Qt.ArrowCursor)
             self.count = 0
+
 
