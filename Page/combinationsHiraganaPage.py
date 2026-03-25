@@ -9,7 +9,7 @@ class combinationsHiraganaPage(QWidget):
         self.parent = parent
         self.setAttribute(Qt.WA_StyledBackground,True)
         self.setObjectName("hP")
-        self.setWindowTitle("Basic Hiragana")
+        self.setWindowTitle("Combinations Hiragana")
         self.setStyleSheet("#hP{background-color : #355872}")
 
         self.header = QWidget()
