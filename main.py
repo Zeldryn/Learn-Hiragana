@@ -3,12 +3,13 @@ from Widgets.myButton import Button
 from Widgets.Widget import Header,Box1,Box2,Box3
 from Widgets.myLabel import Label
 from PySide6.QtCore import QRect, QPropertyAnimation,QTimer
-
+from PySide6.QtGui import QIcon
 
 
 class Main(QWidget):
     def __init__(self):
         super().__init__()
+        self.setWindowIcon(QIcon("assets/image/hiragana.ico"))
         self.outsideWidget = False
         self.setObjectName("Main")
         self.setWindowTitle("Learn Hiragana")
@@ -60,6 +61,7 @@ class Main(QWidget):
 
 
 app = QApplication([])
+app.setWindowIcon(QIcon("assets/image/hiragana.ico"))
 window = Main()
 window.show()
 app.exec()
