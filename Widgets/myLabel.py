@@ -151,5 +151,11 @@ class Label(QLabel):
             self.animDown.setEndValue(QRect(self.parent.width() * 0.67, self.parent.height() * 0.18,self.parent.width() *0.3,self.parent.height() * 0.05))
 
 
+        elif self.id == "hBasicText":
+            self.setText("Basic Hiragana")
+            self.QFont.setPointSize(15)
+            self.QFont.setItalic(True)
+            self.setFont(self.QFont)
+            self.setStyleSheet("color:white")
 
-
+  

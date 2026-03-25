@@ -1,6 +1,7 @@
-from PySide6.QtWidgets import QWidget,QPushButton,QGridLayout,QScrollArea,QVBoxLayout,QSizePolicy
+from PySide6.QtWidgets import QWidget,QPushButton,QGridLayout,QScrollArea,QVBoxLayout,QSizePolicy,QHBoxLayout
 from Widgets.myButton import Button
 from PySide6.QtCore import Qt
+
 
 class HiraganaPage(QWidget):
     def __init__(self,parent):
@@ -11,10 +12,19 @@ class HiraganaPage(QWidget):
         self.setWindowTitle("Basic Hiragana")
         self.setStyleSheet("#hP{background-color : #355872}")
 
+        self.header = QWidget()
+        self.header.setAttribute(Qt.WA_StyledBackground,True)
+        self.header.setSizePolicy(QSizePolicy.Expanding,QSizePolicy.Fixed)
+        self.header.setStyleSheet("background-color:transparent;")
+        self.header.setFixedHeight(self.height()* 0.1)
+        self.headerLayout = QHBoxLayout(self.header)
+        self.headerLayout.addWidget(self.parent.childText,alignment=Qt.AlignCenter)
+
 
 
 
         self.QLayout = QVBoxLayout(self)
+        self.QLayout.addWidget(self.header)
         self.scroll = QScrollArea()
         self.scroll.setWidgetResizable(True)
         self.container = QWidget()

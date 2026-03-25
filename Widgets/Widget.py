@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect,QHBoxLayout,QPushButton
 from PySide6.QtCore import QRect, QPropertyAnimation,Qt,QTimer
 from Page.basicHiraganaPage import HiraganaPage
+from Widgets.myLabel import Label
 
 class Header(QWidget):
     def __init__(self,parent,text):
@@ -37,6 +38,8 @@ class Box1(QPushButton):
         self.count = 0
         self.finishAnim = False
         self.parent = parent
+        self.childText = Label("hBasicText",self)
+
         self.clicked.connect(self.hiraganaPage)
         self.setStyleSheet("""#Box1 {
                            background-image: url(assets/image/hiraganaImage.jpg);

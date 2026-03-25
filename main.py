@@ -5,6 +5,7 @@ from Widgets.myLabel import Label
 from PySide6.QtCore import QRect, QPropertyAnimation,QTimer
 
 
+
 class Main(QWidget):
     def __init__(self):
         super().__init__()
