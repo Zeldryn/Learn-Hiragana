@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QWidget, QGraphicsOpacityEffect,QHBoxLayout,QPushButton
 from PySide6.QtCore import QRect, QPropertyAnimation,Qt,QTimer
 from Page.basicHiraganaPage import HiraganaPage
+from Page.variantsHirganaPage import variantsHiraganaPage
 from Widgets.myLabel import Label
 
 class Header(QWidget):
@@ -105,6 +106,8 @@ class Box2(QPushButton):
         self.count = 0
         self.finishAnim = False
         self.parent = parent
+        self.childText = Label("hVariantsText",self)
+        self.clicked.connect(self.hiraganaPage)
         self.setStyleSheet("""#Box2 {
                            background-image: url(assets/image/gaImage.png);
                            background-repeat: no-repeat;
@@ -151,12 +154,19 @@ class Box2(QPushButton):
             self.timer = QTimer()
             self.timer.timeout.connect(self.countTime)
             self.timer.start(500)
+            super().mousePressEvent(event)
+
 
     def countTime(self):
         self.count += 1
         if self.count == 1:
             self.setCursor(Qt.ArrowCursor)
             self.count = 0
+
+    def hiraganaPage(self):
+        self.variantHirgana = variantsHiraganaPage(self)
+        self.variantHirgana.show()
+
 
 
 class Box3(QPushButton):
